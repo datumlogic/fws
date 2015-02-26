@@ -1,0 +1,35 @@
+<% var is_auth = req.isAuthenticated(); 
+%>
+ <div id="wrap">
+	<div class="container" id="body_content">
+		<div id="create-section">
+		<div style="float:right"><% if (is_auth) { %>
+			<a class="dropdown-toggle" href="/admin/home"><%= __('New Section') %></a> | 
+			<a class="dropdown-toggle" href="/admin/logout"><%= __('Sign Out') %></a>
+			<% } %></div>
+		<table class="table" id="tblData12">
+			<thead>
+				<tr>
+					<th>Section Name</th>
+					<th>Order</th>
+					<th>Created</th>
+					<th class="action"><%= __('Action') %></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% _.each(sections, function(section){ %>
+					<tr>
+						<td><%= section.section %></td>
+						<td><%= section.order %></td>
+						<td><%= section.createdAt %></td>
+						<td><a href="/admin/edit/<%= section.id %>">Edit</a> | <a href="/admin/deletes/<%= section.id %>">Delete</a></td>
+					<tr>
+				<%
+				})
+				%>
+			</tbody>
+		</table>
+		</div>
+
+<div>
+</div>

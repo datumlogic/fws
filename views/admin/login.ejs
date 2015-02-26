@@ -1,0 +1,15 @@
+ <div id="wrap">
+		  <div class="container" id="body_content"><form action="/admin/process" method="post" id="login-form" class="form-signin">
+    <h2 class="form-signin-heading"><%= __('Please sign in') %></h2>
+    <div class="login-fields"><input class="form-control" type="text" name="username" id="username" placeholder="<%= __('username') %>"></div>
+    <div class="login-fields"><input class="form-control" type="password" name="password" id="password" placeholder="<%= __('password') %>"></div>
+    <label class="checkbox">
+        <input type="checkbox" name="rememberme" value="yes"> <%= __('Remember me') %>
+    </label>
+    <div>
+        <input class="btn btn-large btn-info" type="submit" value="<%= __('Sign in') %>">
+    </div>
+</form>
+<script type="text/javascript" src="/js/auth.js"></script>
+<div>
+</div>

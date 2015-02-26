@@ -1,0 +1,103 @@
+<!-- This section is for Splash Screen -->
+
+        <!--################ NAVIGATION START ################-->
+
+        <div class="navbar-wrapper" >
+            <div class="navbar navbar-fixed-top" id="navigation">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="brand" href="#">  <img src="/images/logo.jpeg" width="150" id="logokhan"></a>
+                        <div class="nav-collapse collapse">
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--################ NAVIGATION END ################-->
+
+        <!--################ WRAP START ################-->
+
+        <div id="wrap">
+
+            <!--################ HEADER START ################-->
+            <header id="top" data-stellar-background-ratio="0">
+                <div class="container home">
+                    <div class="flexslider home">
+                        <ul class="slides">
+                            <li>
+                                <div class="span7 animated fadeInLeftBig">
+                                    <img src="/images/responsive.png">
+                                </div>
+                                <div class="span4 margintop10p animated fadeInDownBig">
+                                    <h1><i class="icon-tablet"></i><i class="icon-mobile-phone"></i><i class="icon-desktop"></i><br />full responsive</h1>
+                                </div>
+                            </li>
+                            <li class="margintop10p"><h1><i class="icon-tablet"></i><i class="icon-mobile-phone"></i><i class="icon-desktop"></i><br />and yes its full responsive </h1></li>
+                            <li class="margintop10p"><h1><i class="icon-eye-open icon-2x"></i><br />oh! did i mentioned, its retina ready...</h1></li>
+                        </ul>
+                    </div>
+                    <div class="social-header hidden-phone">
+                        <a href="#" class="social-network sn2 behance"></a>
+                        <a href="#" class="social-network sn2 facebook"></a>
+                        <a href="#" class="social-network sn2 pinterest"></a>
+                        <a href="#" class="social-network sn2 flickr"></a>	
+                        <a href="#" class="social-network sn2 dribbble"></a>
+                        <a href="#" class="social-network sn2 lastfm"></a>
+                        <a href="#" class="social-network sn2 forrst"></a>
+                        <a href="#" class="social-network sn2 xing"></a>   
+                    </div>
+                </div>
+                <!-- <div id="home-arrow" class="hidden-phone">
+                    <a href="#features"  ><i class="icon-double-angle-down icon-3x" id="iconHome"></i></a>
+                </div>-->
+            </header>
+            <!--################ HEADER END ################-->
+
+            <!--################ MAIN CONTAINER START ################-->
+            <!--################ FEATURES SECTION START ################-->
+            <% _.each(sections, function(section){ %>
+				<section class="sections">
+					<div class="section-data" id="section<%= section.id %>" data-stellar-background-ratio="0" >
+						<h1><%= section.section %></h1>
+					</div>
+
+					<div class="container">
+
+						<div class="row margintop20">
+
+							<section class="editor">
+								<div class="outer">
+									<div class="editorwrap">
+										<section class="entry-markdown" style="display:none">
+											<section class="entry-markdown-content">
+												<textarea id="entry-markdown-<%= section.id %>" class="versiontextarea form-control" name="Sections[detail]" value="<%= section.id %>"><%= section.detail %></textarea>
+											</section>
+										</section>
+										<section class="entry-preview active">
+											<section class="entry-preview-content">
+												<div class="rendered-markdown"></div>
+											</section>
+										</section>
+									</div>
+								</div>
+							</section>
+						</div>
+						<hr class="line">
+					</div>
+				</section>
+			<% });%>
+            <!--################ FEATURES SECTION END ################-->
+        </div>
+        <!--################ PUSH WILL KEEP THE FOOTER AT BOTTOM IF YOU WANT TO CREATE OTHER PAGES ################-->
+        <div id="push"></div>
+<script>var viewPage = true;</script>
+<script src="/js/ghostdown.js"></script>
+<link rel="stylesheet" href="/styles/ghostdown.css" />

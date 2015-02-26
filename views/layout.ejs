@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FWS</title>
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+	<link rel="icon" href="favicon.png" type="image/x-icon">
+    
+    <!--  
+        Stylesheets and Preprocessors
+        ==============================
+
+        You can always bring in CSS files manually with `<link>` tags, or asynchronously
+        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage 
+        of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+        By default, stylesheets from your `assets/styles` folder are included
+        here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
+        are supported. In production, your styles will be minified and concatenated into
+        a single file.
+        
+        To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+            
+            + Change the order of your CSS files
+            + Import stylesheets from other directories
+            + Use a different or additional preprocessor, like SASS, SCSS or Stylus
+    -->
+
+    <link rel="stylesheet" href="/styles/importer.css">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+	<!--<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">-->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+	<script src="/js/jquery.min.js"></script>
+  </head>
+
+  <body>
+	 <div class="alert alert-success" id="dynmc_cstm_msg" style="display:none;">
+                    <strong><%= __('Success') %>!</strong> <%= __('Your message has been sent successfully') %>.
+                </div>
+                <!-- For displaying error and success flash messages -->
+                <% 
+                var infoMsg = res.req.flash('info'); 
+                if(infoMsg.length > 0) { %>
+                <div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">&times;</a><%= infoMsg %></div>	
+                <% }
+                var errMsg = res.req.flash('error'); 
+                if(errMsg.length > 0) { %>
+                <div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert">&times;</a><%= errMsg %></div>	
+                <% } %>
+    <%- body %>
+	
+    
+    <script src="/js/cufon-yui.js"></script>
+    <script src="/js/CaramelNuggets_400.font.js"></script>
+    <script src="/js/Gotham_Book_400.font.js"></script>
+    <script src="/js/dependencies/sails.io.js"></script>
+    
+    <script type="text/javascript">
+		Cufon.replace('a.logo', {fontFamily: 'CaramelNuggets'});
+		Cufon.replace('a.logo span', {fontFamily: 'Gotham Book'});
+	</script>
+    
+  </body>
+</html>

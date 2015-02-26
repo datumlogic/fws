@@ -1,0 +1,91 @@
+<script>var viewPage = false</script>
+<script src="/js/ghostdown.js"></script>
+<% var is_auth = req.isAuthenticated(); 
+%>
+
+ <div id="wrap">
+		  <div class="container" id="body_content">
+<div class="row-fluid">
+    <div class="span12">
+		
+        <form role="form" id="create-section" name="create-section" method="post" action="/admin/home">
+        <div style="float:right"><% if (is_auth) { %>
+                    <a class="dropdown-toggle" href="/admin/listing"><%= __('Listing') %></a> | 
+                    <a class="dropdown-toggle" href="/admin/logout"><%= __('Sign Out') %></a>
+                    <% } %></div>
+                    
+            <h1><%= (typeof section !== "undefined") ? __('Edit Section') : __('Create a Section') %></h1>
+            <input type="hidden" id="sectionId" name="Sections[id]" value="<%= (typeof section !== "undefined") ? section.id : '' %>" />
+            <div class="row-fluid" id="festival_container">
+				<div class="form-group required" style="position:relative">
+                    <label for="sectionNumber">Section Heading</label>
+                    <input type="text" class="form-control" name="Sections[section]" id="sectionHeading" placeholder="<%= __('Section Heading') %>" maxlength="250" required="required" autocomplete="off" value="<%= (typeof section !== "undefined") ? section.section : '' %>"/>
+                </div>
+                <div class="form-group required" style="position:relative">
+                    <label for="sectionOrder">Order</label>
+                    <select name="Sections[order]" id="sectionOrder">
+						<option value="1" <%= (typeof section !== "undefined") ? 
+						((section.order == 1)? 'selected':'') : '' %>>1</option>
+						<option value="2" <%= (typeof section !== "undefined") ? 
+						((section.order == 2)? 'selected':'') : '' %>>2</option>
+						<option value="3"<%= (typeof section !== "undefined") ? 
+						((section.order == 3)? 'selected':'') : '' %>>3</option>
+						<option value="4"<%= (typeof section !== "undefined") ? 
+						((section.order == 4)? 'selected':'') : '' %>>4</option>
+                    </select>
+                </div>
+                
+                <div style="position: relative;">
+                    <div class="form-group">
+                        <label for="sectionDetail"><%= __('Description') %></label>
+<!--                        <textarea rows="6" cols="30" class="form-control" name="Sections[detail]" id="sectionDetail" placeholder="Details"></textarea> -->
+			<section class="editor">
+		<div class="outer">
+			<div class="editorwrap">
+				<section class="entry-markdown">
+					<section class="entry-markdown-content">
+						<textarea id="entry-markdown" class="form-control" name="Sections[detail]"><%= (typeof section !== "undefined") ? section.detail : '' %></textarea>
+					</section>
+				</section>
+				<section class="entry-preview active">
+					<section class="entry-preview-content">
+						<div class="rendered-markdown"></div>
+					</section>
+				</section>
+<div style="clear:both"></div>
+			</div>
+		</div>
+	</section>	
+                    </div>
+                </div>
+            </div>
+<p id="help-text"><%= __('Please check')%> <a target="_blank" href="http://www.ghostforbeginners.com/basic-markdown-for-ghost-blogs/"><%= __('here') %> </a> <%= __('for editor options') %>.</p>
+			
+            <div class="form-group">
+                <input type="submit" class="btn btn-info" id="saveInfo" value="<%= __('Save') %>" />
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+<link rel="stylesheet" href="/styles/ghostdown.css" />
+<style>
+p{color:#000; text-align:left}
+.entry-markdown{ width:50%; float:left}
+.entry-preview{width:50%; float:right; background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+    display: block;
+    font-size: 14px;
+    height: 34px;
+    line-height: 1.42857;
+    padding: 6px 12px;
+    height:300px;
+    overflow:auto;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;}
+</style>
+
